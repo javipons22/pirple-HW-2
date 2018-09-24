@@ -1,1 +1,12 @@
-/.data
+
+# exclude everything
+/.data/*
+
+# exception to the rule
+!/.data/.gitkeep 
+!/.data/users
+
+/.data/users/*
+!/.data/users/.gitkeep
+
+
