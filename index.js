@@ -15,7 +15,7 @@ var helpers = require('./lib/helpers');
 var server = http.createServer(function(req,res){
 
     // Retrieve the URL from the request and parse it using the url module
-    var parsedUrl = url.parse(req.url); 
+    var parsedUrl = url.parse(req.url, true); 
 
 
     // Retrieve the full path and trim it to only store the pathname for further matching with route name in route's object
@@ -40,9 +40,13 @@ var server = http.createServer(function(req,res){
     });
 
     req.on('end', function() {
-         buffer += decoder.end();
-         
-    
+        buffer += decoder.end();
+        
+         // If trimmed path available in routes object, return corresponding handler and store it in chosenHandler variable for further execution, if NOT available return notFound handler
+        var chosenHandler = typeof(routes[trimmedPath]) !== 'undefined' ? routes[trimmedPath] : handlers.notFound;
+
+
+
         // All data obtained from the request into an object to pass it to the handler
         var data = {
             'trimmedPath' : trimmedPath,
@@ -53,16 +57,12 @@ var server = http.createServer(function(req,res){
         };
 
 
-        // If trimmed path available in routes object, return corresponding handler and store it in chosenHandler variable for further execution, if NOT available return notFound handler
-        var chosenHandler = typeof(routes[trimmedPath]) !== 'undefined' ? routes[trimmedPath] : handlers.notFound;
-
-
+        
         // Execute the chosen handler 
         chosenHandler(data,function(statusCode, payload){
             
             // Set default status code to 200 in case of not present or different type
             var statusCode = typeof(statusCode) == 'number' ? statusCode : 200;
-
 
             // Set default payload value to empty object if not present
             var payload = typeof(payload) == 'object' ? payload : {};
@@ -79,14 +79,16 @@ var server = http.createServer(function(req,res){
 
             // Log Success or Error message to console
 
-            statusCode == 404 ? console.log('Not found : 404 error code') : console.log('Returned welcome message!');
+            statusCode == 404 ? console.log('Not found : 404 error code') : console.log('Returned request!');
 
         });
     });
 });
 
 // Start the server
-server.listen(3000);
+server.listen(3000, function(){
+    console.log('Server listening on port 3000');
+});
 
 // Set routes object for route matching with pathname and further assignment of handler
 var routes = {
