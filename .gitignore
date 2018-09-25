@@ -5,8 +5,13 @@
 # exception to the rule
 !/.data/.gitkeep 
 !/.data/users
+!/.data/tokens
 
 /.data/users/*
 !/.data/users/.gitkeep
+
+
+/.data/tokens/*
+!/.data/tokens/.gitkeep
 
 
