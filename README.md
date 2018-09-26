@@ -83,7 +83,7 @@ localhost:3000/users?email=javier@mail.com
 
 Error codes appear in the response body.
 
-#Tokens..
+# Tokens..
 
 Tokens is the login system for this app , when logging in (see "how to LOG IN"), a token for the user is created and stored in the .data/tokens folder . Tokens expire one hour after creation.
 
@@ -117,7 +117,7 @@ Error codes appear in the response body.
 
 
 
-## How to GET a Token?
+## How to GET (retrieve information about) a Token?
 To **get token** you should **send a GET request** to the /tokens route with the following **query string**:
 
 - The query string should be the token id of the token to retrieve.
@@ -130,7 +130,7 @@ localhost:3000/tokens?id=03roc03s6hjvxll96mkw
 
 Error codes appear in the response body.
 
-## How to UPDATE a User? (extend expiration)
+## How to UPDATE a Token? (extend expiration)
 To **Update token** you should **send a PUT request** to the /tokens route with the following **body**:
 
 - The body should be an Object.
