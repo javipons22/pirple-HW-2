@@ -7,7 +7,7 @@
 var http = require('http');
 var url = require('url');
 var StringDecoder = require('string_decoder').StringDecoder;
-var handlers = require('./lib/handlers');
+var handlers = require('./lib/handlers/handlers');
 var helpers = require('./lib/helpers');
 
 
@@ -92,6 +92,6 @@ server.listen(3000, function(){
 
 // Set routes object for route matching with pathname and further assignment of handler
 var routes = {
-    hello : handlers.hello,
-    users : handlers.users
+    users : handlers.users,
+    tokens : handlers.tokens
 };
