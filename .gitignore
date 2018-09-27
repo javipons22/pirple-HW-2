@@ -6,6 +6,8 @@
 !/.data/.gitkeep 
 !/.data/users
 !/.data/tokens
+!/.data/menus
+!/.data/menus/*
 
 /.data/users/*
 !/.data/users/.gitkeep
