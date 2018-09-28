@@ -151,5 +151,7 @@ The **OUTPUT** is the updated json file in the .data/users folder.
 This allows to use the token for one more hour.
 Error codes appear in the response body.
 
-
+'INSTRUCTION 1': '- Send a POST request to /cart with "token" as HEADER key (with corresponding token id as value)', 
+                  'INSTRUCTION 2': '- Then send cart array in request body with desired products id separated by commas and email of user',
+                  'INSTRUCTIONS example' : { 'email': 'javier@mail.com' , 'cart' : [ 1 ,3 , 5 ] }
 

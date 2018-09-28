@@ -7,6 +7,7 @@
 !/.data/users
 !/.data/tokens
 !/.data/menus
+!/.data/cart
 !/.data/menus/*
 
 /.data/users/*
@@ -15,6 +16,9 @@
 
 /.data/tokens/*
 !/.data/tokens/.gitkeep
+
+/.data/cart/*
+!/.data/cart/.gitkeep
 
 /lib/config.js
 
