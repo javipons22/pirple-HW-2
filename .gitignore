@@ -1,6 +1,7 @@
-
+/lib/config.js
 # exclude everything
 /.data/*
+
 
 # exception to the rule
 !/.data/.gitkeep 
@@ -20,6 +21,6 @@
 /.data/cart/*
 !/.data/cart/.gitkeep
 
-/lib/config.js
+
 
 
